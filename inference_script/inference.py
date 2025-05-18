@@ -16,8 +16,8 @@ def main():
 
     # Load model and processor, move model to GPU if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = BlipForQuestionAnswering.from_pretrained("ashutoshj01/blip-vqa-lora-finetune-model").to(device)
-    processor = BlipProcessor.from_pretrained("ashutoshj01/blip-vqa-lora-finetune-model")
+    model = BlipForQuestionAnswering.from_pretrained("ashutoshj01/blip-vqa-base-finetune").to(device)
+    processor = BlipProcessor.from_pretrained("ashutoshj01/blip-vqa-base-finetune")
     model.eval()
 
     generated_answers = []
@@ -33,7 +33,6 @@ def main():
         except Exception as e:
             answer = "error"
         # Keep only the first word as lowercase
-        answer = str(answer).split()[0].lower()
         generated_answers.append(answer)
 
     df["generated_answer"] = generated_answers
