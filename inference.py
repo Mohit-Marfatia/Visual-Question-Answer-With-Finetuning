@@ -32,7 +32,7 @@ def main():
                 answer = processor.tokenizer.decode(outputs[0], skip_special_tokens=True)
         except Exception as e:
             answer = "error"
-        # Keep only the first word as lowercase
+        answer = str(answer).lower()
         generated_answers.append(answer)
 
     df["generated_answer"] = generated_answers
