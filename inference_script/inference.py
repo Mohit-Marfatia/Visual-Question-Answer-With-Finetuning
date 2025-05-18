@@ -16,8 +16,8 @@ def main():
 
     # Load model and processor, move model to GPU if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = BlipForQuestionAnswering.from_pretrained("ashutoshj01/blip-vqa-finetune-model").to(device)
-    processor = BlipProcessor.from_pretrained("ashutoshj01/blip-vqa-finetune-model")
+    model = BlipForQuestionAnswering.from_pretrained("ashutoshj01/blip-vqa-lora-finetune-model").to(device)
+    processor = BlipProcessor.from_pretrained("ashutoshj01/blip-vqa-lora-finetune-model")
     model.eval()
 
     generated_answers = []
